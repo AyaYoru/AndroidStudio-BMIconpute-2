@@ -17,21 +17,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = (Button)findViewById(R.id.b1);
+        Button button = (Button)findViewById(R.id.button1);
         button.setOnClickListener(the_bmi);
     }
     private View.OnClickListener the_bmi = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             DecimalFormat nf = new DecimalFormat("0.00");
-            EditText findheight = (EditText)findViewById(R.id.e1);
-            EditText findweight = (EditText)findViewById(R.id.e2);
+            EditText findheight = (EditText)findViewById(R.id.edit1);
+            EditText findweight = (EditText)findViewById(R.id.edit2);
             double height = Double.parseDouble(findheight.getText().toString())/100;
             double weight = Double.parseDouble(findweight.getText().toString());
             double bmi = weight / (height * height);
-            TextView findsuggest = (TextView)findViewById(R.id.t3);
+            TextView findsuggest = (TextView)findViewById(R.id.textV3);
             findsuggest.setText(getText(R.string.bmi_result) + nf.format(bmi));
-            TextView findps = (TextView)findViewById(R.id.t4);
+            TextView findps = (TextView)findViewById(R.id.textV4);
             if (bmi < 18)
                 findps.setText(R.string.advice_light);
             else if (bmi > 24)
